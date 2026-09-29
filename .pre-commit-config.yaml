@@ -1,0 +1,34 @@
+default_install_hook_types: [pre-commit, commit-msg, prepare-commit-msg]
+ci:
+  autofix_commit_msg: ":sparkles: auto fixes by pre-commit hooks"
+  autofix_prs: true
+  autoupdate_branch: master
+  autoupdate_schedule: weekly
+  autoupdate_commit_msg: ":sparkles: pre-commit autoupdate"
+repos:
+- repo: https://github.com/astral-sh/ruff-pre-commit 
+  # Ruff 版本四处统一锁定为 0.16.9：本文件 rev / CI 的 uvx ruff@0.16.9 /
+  # requirements-dev.txt 的 ruff==0.16.9，避免版本不一致导致「本地过、CI 挂」。
+  rev: v0.16.9
+  hooks:
+    # 运行静态检查。
+    - id: ruff-check
+      types_or: [ python, pyi ]
+      args: [ --fix ]
+    # 运行格式化。
+    - id: ruff-format
+      types_or: [ python, pyi ]
+      
+- repo: https://github.com/asottile/pyupgrade 
+  rev: v3.21.0
+  hooks:
+    - id: pyupgrade
+      args: [--py310-plus]
+
+- repo: local
+  hooks:
+    - id: verify-commit
+      name: Verify Conventional Commit & STAR 3-point message
+      entry: node scripts/verify-commit.js
+      language: system
+      stages: [commit-msg]

@@ -1,0 +1,67 @@
+name: '✨ 提交新功能建议'
+title: '[Feature] '
+description: 提交新功能建议或优化方案，帮助完善群聊总结插件。
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您提出新功能建议！请详细描述您的需求场景，以协助我们进行技术可行性与优先级评估。
+
+  - type: dropdown
+    attributes:
+      label: 功能所属模块 (Module)
+      description: 该功能建议主要涉及哪个子系统？
+      options:
+        - 'WebUI 控制台 (Dashboard & Pages)'
+        - '后端数据统计与分析维度 (Analysis Metrics)'
+        - 'LLM 提示词与总结生成 (Prompt & AI Agent)'
+        - '报告模版样式与可视化 (Report Design & Charts)'
+        - '定时调度与多群管理 (Scheduler & Multi-group)'
+        - '链路排错与性能监控 (Trace & Telemetry)'
+        - '其他'
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 功能需求描述 (Feature Description)
+      description: 简明扼要地描述您希望添加的新功能或交互改进。
+      placeholder: >
+        如：希望在 WebUI 控制台的发言排行榜中支持按周/月时间段筛选，并支持一键导出 CSV 数据。
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 需求背景与痛点 (Problem Statement)
+      description: 解释为什么需要此功能，当前在使用中遇到了什么不便？
+      placeholder: >
+        如：目前只能在群内通过指令查看单日数据，群管理员希望在 WebUI 上按更长周期查看群活跃趋势。
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 期望的交互方式或效果 (Expected Behavior)
+      description: 描述您设想的用户操作流程、界面布局或输出报告示例。
+    validations:
+      required: false
+
+  - type: dropdown
+    attributes:
+      label: 优先级评估
+      description: 您认为该需求的紧迫程度如何？
+      options:
+        - '中 / 低优先级（体验优化或锦上添花）'
+        - '高优先级（核心流程缺失或严重影响运营效率）'
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: 贡献意愿
+      description: 是否愿意参与该特性的设计与开发？
+      options:
+        - label: 是的，我愿意参与设计与提交 PR！
+        - label: 我可以提供测试数据或详细反馈

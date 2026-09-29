@@ -1,0 +1,55 @@
+.kilocode/
+.kiro/
+.vscode/
+.idea/
+.serena/
+.sisyphus/
+.ace-tool/
+.workbuddy/
+.tmp_refs/
+**/.DS_Store
+Thumbs.db
+
+# Python caches & test coverage
+**/__pycache__
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.uv-cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Virtualenv（不能只依赖 venv 工具自身生成的 .gitignore，换种方式重建就会整目录暴露）
+.venv/
+/venv/
+
+# Debug files & test outputs
+debug_*.html
+test_*.html
+*.log
+scripts/output/
+scripts/output_all/
+data/debug_data/
+data/test/
+
+# Frontend & Node
+dashboard/node_modules/
+dashboard/.pnpm-store/
+node_modules/
+dist/
+
+# Persistence & temporary test data
+/data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+traces.db
+
+# 本地临时产物目录（原规则只覆盖其中一种文件名，其余文件会变成待提交噪音）
+/tmp/
+
+docs/architecture/**
+.archify-tool/

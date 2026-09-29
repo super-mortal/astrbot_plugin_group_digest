@@ -1,0 +1,91 @@
+name: '🐛 报告 Bug'
+title: '[Bug] '
+description: 提交 Bug 报告以帮助我们定位并修复问题。
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您抽出时间报告问题！请详细提供以下信息以协助更快定位与复现。
+
+  - type: dropdown
+    attributes:
+      label: 涉及模块 (Module)
+      description: 请选择出现异常的子模块
+      options:
+        - 'WebUI 控制台 (Dashboard & Pages)'
+        - '后端数据统计与分析 (Analysis Pipeline)'
+        - 'LLM 话题抽取与发言总结 (LLM Summarization)'
+        - '报告模版渲染与图片生成 (HTML & Canvas Render)'
+        - '定时任务与自动调度 (Cron & Scheduler)'
+        - '链路追踪与日志排查 (Trace & Telemetry)'
+        - '插件安装与依赖加载 (Plugin Lifecycle)'
+        - '其他 / 不确定'
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 异常现象描述 (What happened?)
+      description: 发生了什么？请清晰且具体地描述你遇到的异常行为。
+      placeholder: >
+        如：在点击 WebUI 链路追踪抽屉中的 Spans 详情时页面出现白屏，或者每日自动总结生成了空白报告...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 复现步骤 (Steps to Reproduce)
+      description: 请提供逐步复现该问题的详细操作路径。
+      placeholder: >
+        1. 打开 AstrBot WebUI 并进入群聊总结页面
+        2. 点击 ...
+        3. 观察到异常 ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 运行环境与版本 (Environment & Versions)
+      description: 请提供您的 AstrBot 版本、插件版本、消息平台适配器以及部署方式。
+      placeholder: >
+        - AstrBot 版本: v4.25.0
+        - 群聊总结插件版本: v1.0.0
+        - 适配器平台: NapCat (OneBot v11) / Discord / Telegram / QQ 官方
+        - 部署方式: Windows 本地 / Linux Docker / macOS
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: 操作系统与浏览器 (OS & Browser)
+      description: 如果涉及 WebUI 问题，请标明浏览器类型
+      options:
+        - 'Windows (Chrome / Edge)'
+        - 'Windows (Firefox)'
+        - 'Linux (Chrome / Edge / Firefox)'
+        - 'macOS (Safari / Chrome)'
+        - 'Android / iOS 移动端浏览器'
+        - '不涉及 WebUI (纯后端问题)'
+        - '其他'
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 报错日志与截图 (Logs & Screenshots)
+      description: >
+        请粘贴 AstrBot 后端完整的 Debug 级别报错堆栈，或者浏览器 Console 控制台报错（F12 -> Console）。
+      placeholder: >
+        ```text
+        [粘贴后端报错或前端 Console 错误信息]
+        ```
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: 贡献意愿
+      description: 是否愿意协助修复或提交 PR？
+      options:
+        - label: 是的，我愿意参与排查并提交 PR 修复！
